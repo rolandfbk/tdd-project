@@ -1,17 +1,22 @@
 class Solver
-  def factorial num
-    if num < 0
-      return 'The number must be greater or equal to 0!'
-    end
+  def factorial(num)
+    return 'The number must be greater or equal to 0!' if num.negative?
 
-    if num == 0 || num == 1
-      return 1
-    end
+    return 1 if [0, 1].include?(num)
 
-    return num * factorial(num - 1)
+    num * factorial(num - 1)
   end
 
-  def reverse str
-    return str.reverse
+  def reverse(str)
+    str.reverse
+  end
+
+  def fizzbuzz(num)
+    return 'Error' if num.class != Integer
+    return 'FizzBuzz' if (num % 15).zero?
+    return 'Fizz' if (num % 3).zero?
+    return 'Buzz' if (num % 5).zero?
+
+    num.to_s
   end
 end
